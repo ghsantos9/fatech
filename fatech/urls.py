@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include,path
 
+from django.views.generic import RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('rfid/', include('rfid.urls')),
-    path('', include('login.urls')),
-    #path('', include('django.contrib.auth.urls')),
-    
-]
+    # path('', include('login.urls')),
+    path('', RedirectView.as_view(url='/rfid/', permanent=True)),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

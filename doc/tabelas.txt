@@ -1,0 +1,19 @@
+* = nivel de superioridade
+todos os ids tem auto increment
+
+django  admin *** tabela n mt editavel criada diretamente no servidor
+
+administador-login ** "site login"
+-id
+-usuario
+-senha
+
+usuarios-rfid*
+-id
+-rfid
+-nome
+
+rfid-log *
+-id
+-rfid
+-data
