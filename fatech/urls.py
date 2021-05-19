@@ -25,4 +25,4 @@ urlpatterns = [
     path('rfid/', include('rfid.urls')),
     # path('', include('login.urls')),
     path('', RedirectView.as_view(url='/rfid/', permanent=True)),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

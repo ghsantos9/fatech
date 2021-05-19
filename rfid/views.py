@@ -1,8 +1,14 @@
+from rfid.models import rfidLogs,Dispositivos
+
 from django.shortcuts import render
 from django.template import loader
 # Create your views here.
 
 from django.http import HttpResponse
+
+from django.utils import timezone
+
+from django.http import Http404
 
 
 def index(request):
@@ -12,6 +18,24 @@ def index(request):
     #     print("recebi o post")
     #     print(request.POST)
     #     print(request.POST.get("rfid"))
-    print("Id do cartão:",request.GET.get('card_uid','',))
-    print("Token do dispositivo:",request.GET.get('device_token','',))
+    id_rfid = request.GET.get('card_uid','',)
+    device_token = request.GET.get('device_token','',)
+
+    try:
+        chegado = Dispositivos.objects.get(nodeId=device_token)
+        print(chegado)
+        print("Id do cartão:", id_rfid)
+        print("Token do dispositivo:",device_token)
+        rfidLogs(rfid=id_rfid,date=timezone.now()).save()
+    except Dispositivos.DoesNotExist:
+        raise Http404("Rfid não existe!")
     return render(request,'rfid/index.html')
+
+    # try:
+    #     if Dispositivos.objects.all().filter(nodeId=chegado.nodeId).exists():
+    #         print("Id do cartão:", id_rfid)
+    #         print("Token do dispositivo:",device_token)
+    #         rfidLogs(rfid=id_rfid,date=timezone.now()).save()
+    #         return render(request,'rfid/index.html')
+    # except Dispositivos.DoesNotExist:
+    #     raise Http404("Question does not exist")
