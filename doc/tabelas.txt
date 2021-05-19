@@ -1,19 +1,27 @@
-* = nivel de superioridade
+grau de hierarquia *** - maior
+grau de hierarquia * - menor
+
 todos os ids tem auto increment
 
-django  admin *** tabela n mt editavel criada diretamente no servidor
+--- Tabelas SQL ---
 
-administador-login ** "site login"
+django-admin *** tabela n mt editavel criada diretamente no servidor - Somenete os integrantes do grupo tem acesso
+
+administador-login ** "site login" - Destinado para os administradores da instituição
 -id
 -usuario
 -senha
 
-usuarios-rfid*
+usuarios-rfid * - Cadastro dos rfid com nome 
 -id
 -rfid
 -nome
 
-rfid-log *
+rfidLogs - Tabela onde cada rfid encontrado é registrado com a hora.
 -id
 -rfid
 -data
+
+Dispositivos - Identificação para que somente os nodeMCU registrados consigam comunicar com sistema.
+-id
+-nodeId
