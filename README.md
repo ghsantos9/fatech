@@ -1,6 +1,6 @@
 # fatech
 
-Instalando django
+Instalando o Django
 ```
 python -m pip install django
 ```
