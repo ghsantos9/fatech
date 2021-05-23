@@ -28,7 +28,7 @@ def index(request):
         print("Token do dispositivo:",device_token)
         rfidLogs(rfid=id_rfid,date=timezone.now()).save()
     except Dispositivos.DoesNotExist:
-        raise Http404("Rfid não existe!")
+        raise Http404("Dispositivo não cadastrado!")
     return render(request,'rfid/index.html')
 
     # try:

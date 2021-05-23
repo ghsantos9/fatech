@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('rfid/', include('rfid.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('inicio/', include('inicio.urls')),
     # path('', include('login.urls')),
-    # path('', RedirectView.as_view(url='/rfid/', permanent=True)),
+    path('', RedirectView.as_view(url='/inicio/', permanent=True)),
 ] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
