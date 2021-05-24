@@ -31,15 +31,23 @@
     <h5 style="text-align: center;">Atualizado em {{agora}}.</h5>
     <table>
         <tr>
-          <th>Nome relacionado</th>
           <th>Número RFID</th>
-          <th>Data{{ registrados.rfid_id }}</th>
+          <th>Data</th>
+          <th>Nome relacionado</th>
         </tr>
             {% for rfida in logs_lista %}
                 <tr>
-                  <td>{{ registrados.nome }}</td>
                   <td>{{ rfida.rfid }}</td>
                   <td>{{ rfida.date }}</td>
+                  {% for regis in registrados %}
+                    {% if regis.rfid == rfida.rfid %}
+                      <td>{{ regis.nome }}</td>
+                    {% else %}
+                      {% if forloop.counter == '0' %}
+                        <td></td>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
                 </tr>
             {% endfor %}
 

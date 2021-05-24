@@ -21,4 +21,4 @@ class rfidUsuarios(models.Model):
     email = EmailField(max_length=30)
 
     def __str__(self):
-        return self.nome
+        return f'{self.rfid}'

@@ -91,7 +91,6 @@
   }
 
   th {
-    border: 1px solid black;
     border-collapse: collapse;
     text-align: center;
     border: 1px solid #999;
@@ -109,14 +108,27 @@
   }
 
   input{
-    border: 1px solid black;
     border-collapse: collapse;
     text-align: left;
     border: 1px solid #999;
-    padding: 0.5rem;
+    padding: 8px;
     background: rgb(252, 252, 252);
     color: rgb(0, 0, 0);
-    border-radius: 5px;
+    border-radius: 5px;;
+  }
+  
+  label{
+    text-align: left;
+    padding: 8px;
+    color: rgb(0, 0, 0);
+    margin-right: auto;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  form{
+    text-align: left;
   }
   
   /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */

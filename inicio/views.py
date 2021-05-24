@@ -34,7 +34,8 @@ def log(request):
     logs_lista = rfidLogs.objects.order_by('date').reverse()[:10]
     #print(usuarios_lista)
     registrados = rfidUsuarios.objects.all()
-    print(registrados)
+    lista_registrados=(list(registrados))
+    print(lista_registrados)
     agora = timezone.now()
     template = loader.get_template('inicio/log.html')
     
