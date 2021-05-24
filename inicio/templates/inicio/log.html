@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Fatech Automation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'inicio/css/style.css' %}">
+</head>
+<body>
+
+<div class="header">
+  <h1>Fatech Automation</h1>
+  <p>Controle RFID.</p>
+</div>
+
+<div class="navbar">
+  <a href="/inicio">Home</a>
+  <a href="cadastro">Cadastro de RFID</a>
+  <a href="log">Log</a>
+  {% if user.is_authenticated %}
+  <a href="{% url 'logout'%}?next={{request.path}}" class="right">Sair</a>
+  <a class="right">Olá {{ user.username }}</a>
+  {% endif %}
+</div>
+
+<div class="row">
+    <div class="main">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Dec 7, 2017</h5>
+        <table>
+            <tr>
+                <th>Número RFID</th>
+                <th>Data</th>
+            </tr>
+                {% for rfida in usuarios_lista %}
+                    <tr>
+                        <td>{{ rfida.rfid }}</td>
+                        <td>{{ rfida.date }}</td>
+                    </tr>
+                {% endfor %}
+
+        </table>
+      </div>
+</div>
