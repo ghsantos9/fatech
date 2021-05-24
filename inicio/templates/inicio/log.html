@@ -25,22 +25,31 @@
   {% endif %}
 </div>
 
-<div class="row">
-    <div class="main">
-        <h2>TITLE HEADING</h2>
-        <h5>Title description, Dec 7, 2017</h5>
-        <table>
-            <tr>
-                <th>Número RFID</th>
-                <th>Data</th>
-            </tr>
-                {% for rfida in usuarios_lista %}
-                    <tr>
-                        <td>{{ rfida.rfid }}</td>
-                        <td>{{ rfida.date }}</td>
-                    </tr>
-                {% endfor %}
+<div class="container">
+  <div class="child">
+    <h2 style="text-align: center;">10 últimos registros</h2>
+    <h5 style="text-align: center;">Atualizado em {{agora}}.</h5>
+    <table>
+        <tr>
+          <th>Nome relacionado</th>
+          <th>Número RFID</th>
+          <th>Data{{ registrados.rfid_id }}</th>
+        </tr>
+            {% for rfida in logs_lista %}
+                <tr>
+                  <td>{{ registrados.nome }}</td>
+                  <td>{{ rfida.rfid }}</td>
+                  <td>{{ rfida.date }}</td>
+                </tr>
+            {% endfor %}
 
-        </table>
-      </div>
+    </table>
+  </div>
 </div>
+
+<div class="footer">
+  <h2>Feito pela equipe Fatech Automation</h2>
+</div>
+
+</body>
+</html>

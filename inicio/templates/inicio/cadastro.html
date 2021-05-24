@@ -17,7 +17,7 @@
 
 <div class="navbar">
   <a href="/inicio">Home</a>
-  <a href="cadastro">Cadastro RFID</a>
+  <a href="cadastro">Cadastro de RFID</a>
   <a href="log">Log</a>
   {% if user.is_authenticated %}
   <a href="{% url 'logout'%}?next={{request.path}}" class="right">Sair</a>
@@ -27,28 +27,42 @@
 
 <div class="row">
   <div class="side">
-    <!-- <h2>About Me</h2>
-    <h5>Photo of me:</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    <h3>More Text</h3>
-    <p>Lorem ipsum dolor sit ame.</p>
-    <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div><br>
-    <div class="fakeimg" style="height:60px;">Image</div> -->
+    <h2>Cadastro:</h2>
+
+    <form method="post" action="{% url 'cadastro' %}">
+      {% csrf_token %}
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome"><br><br>
+      <label for="rfid">RFID:</label>
+      <input type="text" id="rfid" name="rfid"><br><br>
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email"><br><br>
+        <input type="submit" value="Cadastrar" />
+      </form>
   </div>
   <div class="main">
-    <!-- <h2>TITLE HEADING</h2>
-    <h5>Title description, Dec 7, 2017</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text..</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    <br>
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Sep 2, 2017</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text..</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p> -->
+    <div class="container">
+      <div class="child">
+        <h2 style="text-align: center;">Registrados</h2>
+        <h5 style="text-align: center;">Atualizado em {{agora}}.</h5>
+        <table>
+            <tr>
+              <th>Nome</th>
+              <th>Número RFID</th>
+              <th>Email</th>
+            </tr>
+                {% for regis in registrados %}
+                    <tr>
+                      <td>{{ regis.nome }}</td>
+                      <td>{{ regis.rfid }}</td>
+                      <td>{{ regis.email }}</td>
+                    </tr>
+                {% endfor %}
+    
+        </table>
+      </div>
+    </div>
+  
   </div>
 </div>
 
