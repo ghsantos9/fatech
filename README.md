@@ -4,7 +4,7 @@
 
 Instalando o Django:
 ```
-python -m pip install django
+python3 -m pip install django
 ```
 Na pasta do repositório, faça as migrações das tabelas:
 ```
