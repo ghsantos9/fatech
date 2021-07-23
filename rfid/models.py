@@ -4,7 +4,7 @@ from django.db.models.fields import EmailField
 # Create your models here.
 
 class rfidLogs(models.Model):
-    rfid = models.CharField(max_length=30)
+    rfid = models.CharField(max_length=30, blank=False)
     date = models.DateTimeField('data registro')
 
     def __str__(self):
@@ -16,9 +16,9 @@ class Dispositivos(models.Model):
         return self.nodeId
 
 class rfidUsuarios(models.Model):
-    nome = models.CharField(max_length=60)
-    rfid = models.CharField(max_length=30)
-    email = EmailField(max_length=30)
+    nome = models.CharField(max_length=60, blank=False)
+    rfid = models.CharField(max_length=30, blank=False)
+    email = EmailField(max_length=30, blank=False)
 
     def __str__(self):
         return f'{self.rfid}'
